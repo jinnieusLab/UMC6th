@@ -17,20 +17,22 @@ public class Store extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, length = 50)
     private String name;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, length = 50)
     private String telNum;
 
-    @Column(nullable = false, length = 40)
+    @Column(nullable = false, length = 50)
     private String address;
+
+    private Float score;
 
     // 참조되는 PK
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
-    private List<Review> reviews = new ArrayList<>();
+    private List<Review> reviewList = new ArrayList<>();
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
-    private List<Mission> missions = new ArrayList<>(); // 가게마다 미션 여러 개
+    private List<Mission> missionList = new ArrayList<>(); // 가게마다 미션 여러 개
 
     // FK
     @ManyToOne(fetch = FetchType.LAZY)
