@@ -5,6 +5,7 @@ import lombok.*;
 import umc.study.domain.common.BaseEntity;
 import umc.study.domain.mapping.MemberMission;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +19,12 @@ public class Mission extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private Long reward;
+
+    private LocalDateTime deadline;
+
+    private String missionSpec;
+
     // FK
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")
@@ -25,5 +32,5 @@ public class Mission extends BaseEntity {
 
     // 참조되는 PK
     @OneToMany(mappedBy = "mission", cascade = CascadeType.ALL)
-    private List<MemberMission> memberMissions = new ArrayList<>();
+    private List<MemberMission> memberMissionList = new ArrayList<>();
 }
