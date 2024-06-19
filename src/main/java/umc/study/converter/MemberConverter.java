@@ -6,6 +6,7 @@ import umc.study.web.dto.request.MemberRequestDTO;
 import umc.study.web.dto.response.MemberResponseDTO;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class MemberConverter {
 
@@ -37,6 +38,7 @@ public class MemberConverter {
                 .specAddress(request.getSpecAddress())
                 .gender(gender)
                 .name(request.getName())
+                .memberPreferList(new ArrayList<>())
                 .build();
     }
 }

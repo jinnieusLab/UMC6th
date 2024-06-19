@@ -28,16 +28,17 @@ public class MemberCommandServiceImpl implements MemberCommandService{
     @Override
     @Transactional
     public Member joinMember(MemberRequestDTO.JoinDto request) {
-        Member member = MemberConverter.toMember(request);
+
+        Member newMember = MemberConverter.toMember(request);
         List<FoodCategory> foodCategoryList = request.getPreferCategory().stream()
-                .map(category -> {
-                    return foodCategoryRepository.findById(category).orElseThrow(() -> new FoodCategoryHandler(ErrorStatus.FOOD_CATEGORY_NOT_FOUND));
-                }).collect(Collectors.toList());
+                .map(category -> foodCategoryRepository.findById(category)
+                        .orElseThrow(() -> new FoodCategoryHandler(ErrorStatus.FOOD_CATEGORY_NOT_FOUND))).toList();
 
         List<MemberPrefer> memberPreferList = MemberPreferConverter.toMemberPreferList(foodCategoryList);
+        for (MemberPrefer memberPrefer : memberPreferList) {
+            memberPrefer.setMember(newMember);
+        }
 
-        memberPreferList.forEach(memberPrefer -> {memberPrefer.setMember(member);});
-
-        return memberRepository.save(member);
+        return memberRepository.save(newMember);
     }
 }
