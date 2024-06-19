@@ -1,4 +1,4 @@
-package umc.study.service;
+package umc.study.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,6 +12,7 @@ import umc.study.domain.Member;
 import umc.study.domain.mapping.MemberPrefer;
 import umc.study.repository.FoodCategoryRepository;
 import umc.study.repository.MemberRepository;
+import umc.study.service.MemberCommandService;
 import umc.study.web.dto.request.MemberRequestDTO;
 
 import java.util.List;
@@ -20,7 +21,7 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class MemberCommandServiceImpl implements MemberCommandService{
+public class MemberCommandServiceImpl implements MemberCommandService {
 
     private final MemberRepository memberRepository;
     private final FoodCategoryRepository foodCategoryRepository;
