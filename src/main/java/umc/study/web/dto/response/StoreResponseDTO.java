@@ -14,9 +14,8 @@ public class StoreResponseDTO {
     @Builder
     public static class CreateStoreResultDTO {
         private Long storeId;
+        private String name;
+        private Float score;
         private LocalDateTime createdAt;
     }
-
-
-
 }

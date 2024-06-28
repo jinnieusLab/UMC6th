@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import umc.study.apiPayload.ApiResponse;
+import umc.study.converter.StoreConverter;
 import umc.study.domain.Store;
 import umc.study.service.StoreService;
 import umc.study.web.dto.request.StoreRequestDTO;
@@ -21,7 +22,7 @@ public class StoreRestController {
     @PostMapping("/")
     public ApiResponse<StoreResponseDTO.CreateStoreResultDTO> createStore(@RequestBody @Valid StoreRequestDTO.CreateStoreDTO createStoreDTO) {
         Store store = storeService.createStore(createStoreDTO);
-        return ApiResponse.onSuccess(StroeConverter.)
+        return ApiResponse.onSuccess(StoreConverter.toCreateStoreResultDTO(store));
 
     }
 }
