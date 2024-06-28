@@ -13,8 +13,13 @@ public class StoreRequestDTO {
     public static class CreateStoreDTO {
         @NotBlank
         String name;
+
+        @NotBlank
+        String telNum;
+
         @NotBlank
         String address;
+
         @NotNull
         Float score;
 
