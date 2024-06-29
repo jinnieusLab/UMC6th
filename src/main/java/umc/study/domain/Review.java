@@ -26,4 +26,13 @@ public class Review extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")
     private Store store;
+
+    // 연관관계 편의 메소드
+    public void setMember(Member member) {
+        this.member = member;
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
+    }
 }
