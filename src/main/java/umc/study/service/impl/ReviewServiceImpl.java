@@ -27,7 +27,7 @@ public class ReviewServiceImpl implements ReviewService {
     @Override
     public Review createReview(Long memberId, Long storeId, ReviewRequestDTO.CreateReviewDTO createReviewDTO) {
         Review review = ReviewConverter.toReview(createReviewDTO);
-        //Review의 Member와 Store 연관관계
+        // Review의 Member와 Store 연관관계
         Member member = memberRepository.findById(memberId).orElseThrow(()->{
             throw new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND);});
         Store store = storeRepository.findById(storeId).orElseThrow(()->{

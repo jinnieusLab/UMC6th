@@ -33,4 +33,9 @@ public class Mission extends BaseEntity {
     // 참조되는 PK
     @OneToMany(mappedBy = "mission", cascade = CascadeType.ALL)
     private List<MemberMission> memberMissionList = new ArrayList<>();
+
+    // 연관관계 편의 메소드
+    public void setStore(Store store) {
+        this.store = store;
+    }
 }
