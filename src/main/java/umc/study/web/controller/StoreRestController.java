@@ -23,6 +23,5 @@ public class StoreRestController {
     public ApiResponse<StoreResponseDTO.CreateStoreResultDTO> createStore(@RequestBody @Valid StoreRequestDTO.CreateStoreDTO createStoreDTO) {
         Store store = storeService.createStore(createStoreDTO);
         return ApiResponse.onSuccess(StoreConverter.toCreateStoreResultDTO(store));
-
     }
 }

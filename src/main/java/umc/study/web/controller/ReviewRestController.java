@@ -12,7 +12,7 @@ import umc.study.web.dto.response.ReviewResponseDTO;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("")
+@RequestMapping("/")
 public class ReviewRestController {
     private final ReviewService reviewService;
 
