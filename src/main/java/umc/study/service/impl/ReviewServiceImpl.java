@@ -1,6 +1,8 @@
 package umc.study.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import umc.study.apiPayload.code.status.ErrorStatus;
 import umc.study.apiPayload.exception.handler.MemberHandler;
 import umc.study.apiPayload.exception.handler.StoreHandler;
@@ -14,7 +16,9 @@ import umc.study.repository.StoreRepository;
 import umc.study.service.ReviewService;
 import umc.study.web.dto.request.ReviewRequestDTO;
 
+@Service
 @RequiredArgsConstructor
+@Transactional
 public class ReviewServiceImpl implements ReviewService {
     private final MemberRepository memberRepository;
     private final StoreRepository storeRepository;
