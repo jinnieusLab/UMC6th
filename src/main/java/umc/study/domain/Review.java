@@ -32,7 +32,7 @@ public class Review extends BaseEntity {
         this.member = member;
     }
 
-    public void setStore(Store store)드 {
+    public void setStore(Store store) {
         this.store = store;
     }
 }
