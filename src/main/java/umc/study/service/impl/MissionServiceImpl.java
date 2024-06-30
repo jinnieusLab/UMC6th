@@ -13,6 +13,8 @@ import umc.study.repository.StoreRepository;
 import umc.study.service.MissionService;
 import umc.study.web.dto.request.MissionRequestDTO;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -22,7 +24,6 @@ public class MissionServiceImpl implements MissionService {
 
     @Override
     public Mission createMission(Long storeId, MissionRequestDTO.CreateMissionDTO createMissionDTO) {
-
         // Mission의 Store 연관 관계
         Store store = storeRepository.findById(storeId).orElseThrow(() -> {
             throw new MissionHandler(ErrorStatus.MISSION_NOT_FOUND);});
@@ -30,5 +31,13 @@ public class MissionServiceImpl implements MissionService {
         mission.setStore(store);
 
         return missionRepository.save(mission);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Mission> readMissionsByStore(Long storeId) {
+        Store store = storeRepository.findById(storeId).orElseThrow(() -> {
+            throw new MissionHandler(ErrorStatus.MISSION_NOT_FOUND);});
+        return missionRepository.findAllByStore(store);
     }
 }
