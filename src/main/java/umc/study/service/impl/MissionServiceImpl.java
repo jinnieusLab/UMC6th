@@ -22,10 +22,11 @@ public class MissionServiceImpl implements MissionService {
 
     @Override
     public Mission createMission(Long storeId, MissionRequestDTO.CreateMissionDTO createMissionDTO) {
-        Mission mission = MissionConverter.toMission(createMissionDTO);
+
         // Mission의 Store 연관 관계
         Store store = storeRepository.findById(storeId).orElseThrow(() -> {
             throw new MissionHandler(ErrorStatus.MISSION_NOT_FOUND);});
+        Mission mission = MissionConverter.toMission(createMissionDTO, store);
         mission.setStore(store);
 
         return missionRepository.save(mission);
