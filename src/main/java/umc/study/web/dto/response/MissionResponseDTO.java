@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import umc.study.domain.Mission;
 
 import java.time.LocalDateTime;
 import java.util.List;
