@@ -1,4 +1,4 @@
-package umc.study.service;
+package umc.study.service.impl.store;
 
 import org.springframework.data.domain.Page;
 import umc.study.domain.Review;

@@ -1,4 +1,4 @@
-package umc.study.service.impl;
+package umc.study.service.impl.mission;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,6 @@ import umc.study.domain.Mission;
 import umc.study.domain.Store;
 import umc.study.repository.MissionRepository;
 import umc.study.repository.StoreRepository;
-import umc.study.service.MissionService;
 import umc.study.web.dto.request.MissionRequestDTO;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package umc.study.service.impl;
+package umc.study.service.impl.member;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,11 +19,9 @@ import umc.study.repository.FoodCategoryRepository;
 import umc.study.repository.MemberMissionRepository;
 import umc.study.repository.MemberRepository;
 import umc.study.repository.MissionRepository;
-import umc.study.service.MemberCommandService;
 import umc.study.web.dto.request.MemberRequestDTO;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor

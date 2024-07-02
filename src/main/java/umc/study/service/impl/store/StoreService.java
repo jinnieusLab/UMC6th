@@ -1,4 +1,4 @@
-package umc.study.service;
+package umc.study.service.impl.store;
 
 import umc.study.domain.Store;
 import umc.study.web.dto.request.StoreRequestDTO;

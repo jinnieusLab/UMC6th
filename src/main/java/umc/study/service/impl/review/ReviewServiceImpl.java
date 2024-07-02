@@ -1,4 +1,4 @@
-package umc.study.service.impl;
+package umc.study.service.impl.review;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,6 @@ import umc.study.domain.Store;
 import umc.study.repository.MemberRepository;
 import umc.study.repository.ReviewRepository;
 import umc.study.repository.StoreRepository;
-import umc.study.service.ReviewService;
 import umc.study.web.dto.request.ReviewRequestDTO;
 
 @Service

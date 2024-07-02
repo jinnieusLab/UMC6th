@@ -1,4 +1,4 @@
-package umc.study.service.impl;
+package umc.study.service.impl.mission;
 
 import lombok.RequiredArgsConstructor;
 
@@ -10,7 +10,6 @@ import umc.study.domain.Mission;
 import umc.study.domain.Store;
 import umc.study.repository.MissionRepository;
 import umc.study.repository.StoreRepository;
-import umc.study.service.MissionQueryService;
 
 import java.util.Optional;
 

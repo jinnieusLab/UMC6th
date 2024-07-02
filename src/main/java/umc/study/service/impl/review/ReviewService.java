@@ -1,4 +1,4 @@
-package umc.study.service;
+package umc.study.service.impl.review;
 
 import umc.study.domain.Review;
 import umc.study.web.dto.request.ReviewRequestDTO;
