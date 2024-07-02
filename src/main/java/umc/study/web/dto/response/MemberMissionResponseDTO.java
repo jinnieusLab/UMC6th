@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import umc.study.validation.annotation.ChallengeMission;
 
 public class MemberMissionResponseDTO {
 

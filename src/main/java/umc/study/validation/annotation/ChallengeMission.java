@@ -1,18 +1,16 @@
 package umc.study.validation.annotation;
-
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
-import umc.study.validation.validator.StoreExistsValidator;
+import umc.study.validation.validator.CategoriesExistValidator;
 
 import java.lang.annotation.*;
 
 @Documented
-@Constraint(validatedBy = StoreExistsValidator.class)
+@Constraint(validatedBy = CategoriesExistValidator.class)
 @Target( { ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ExistsStore {
-    String message() default "해당하는 가게가 존재하지 않습니다.";
+public @interface ChallengeMission {
+    String message() default "이미 도전 중인 미션입니다.";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }
-
