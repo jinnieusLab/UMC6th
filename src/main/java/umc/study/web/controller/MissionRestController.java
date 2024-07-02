@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import umc.study.apiPayload.ApiResponse;
 import umc.study.converter.MissionConverter;
 import umc.study.domain.Mission;
-import umc.study.service.MissionQueryService;
-import umc.study.service.MissionService;
+import umc.study.service.impl.mission.MissionQueryService;
+import umc.study.service.impl.mission.MissionService;
 import umc.study.web.dto.request.MissionRequestDTO;
 import umc.study.web.dto.response.MissionResponseDTO;
 

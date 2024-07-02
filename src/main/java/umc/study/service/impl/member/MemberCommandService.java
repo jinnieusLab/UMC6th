@@ -1,4 +1,4 @@
-package umc.study.service;
+package umc.study.service.impl.member;
 
 import umc.study.domain.Member;
 import umc.study.domain.mapping.MemberMission;

@@ -1,4 +1,4 @@
-package umc.study.service.impl;
+package umc.study.service.impl.member;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,11 +19,9 @@ import umc.study.repository.FoodCategoryRepository;
 import umc.study.repository.MemberMissionRepository;
 import umc.study.repository.MemberRepository;
 import umc.study.repository.MissionRepository;
-import umc.study.service.MemberCommandService;
 import umc.study.web.dto.request.MemberRequestDTO;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -56,11 +54,12 @@ public class MemberCommandServiceImpl implements MemberCommandService {
         Mission mission = missionRepository.findById(missionId).orElseThrow(() -> {
             throw new MissionHandler(ErrorStatus.MISSION_NOT_FOUND);
         });
+        // member는 하드코딩
         Member member = memberRepository.findById(1L).orElseThrow(() -> {
             throw new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND);
         });
-        MemberMission memberMission = MemberMissionConverter.toMemberMissionDTO(member, mission);
 
+        MemberMission memberMission = MemberMissionConverter.toMemberMissionDTO(member, mission);
         return memberMissionRepository.save(memberMission);
     }
 }

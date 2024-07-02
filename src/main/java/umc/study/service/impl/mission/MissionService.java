@@ -1,4 +1,4 @@
-package umc.study.service;
+package umc.study.service.impl.mission;
 
 import umc.study.domain.Mission;
 import umc.study.web.dto.request.MissionRequestDTO;

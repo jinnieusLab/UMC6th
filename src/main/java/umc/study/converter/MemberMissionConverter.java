@@ -11,14 +11,14 @@ public class MemberMissionConverter {
         return MemberMission.builder()
                 .member(member)
                 .mission(mission)
-                .status("진행중")
+                .status("도전중")
                 .build();
     }
 
     public static MemberMissionResponseDTO.AddMemberMissionResultDTO toAddMemberMissionDTO(MemberMission memberMission) {
         return MemberMissionResponseDTO.AddMemberMissionResultDTO.builder()
                 .memberMissionId(memberMission.getId())
-                .memberId(memberMission.getMember().getId())
+                .memberId(1L)
                 .missionId(memberMission.getMission().getId())
                 .build();
     }
