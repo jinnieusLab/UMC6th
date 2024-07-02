@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import umc.study.apiPayload.ApiResponse;
 import umc.study.converter.MissionConverter;
 import umc.study.domain.Mission;
-import umc.study.service.impl.mission.MissionQueryService;
 import umc.study.service.impl.mission.MissionService;
 import umc.study.web.dto.request.MissionRequestDTO;
 import umc.study.web.dto.response.MissionResponseDTO;
@@ -24,7 +23,7 @@ import java.util.List;
 @RequestMapping("/")
 public class MissionRestController {
     private final MissionService missionService;
-    private final MissionQueryService missionQueryService;
+//    private final MissionQueryService missionQueryService;
 
     @PostMapping("stores/{storeId}/missions")
     public ApiResponse<MissionResponseDTO.CreateMissionResultDTO> createMission(@PathVariable Long storeId, @RequestBody @Valid MissionRequestDTO.CreateMissionDTO createMissionDTO) {
@@ -46,7 +45,7 @@ public class MissionRestController {
     @GetMapping("stores/{storeId}/missions")
     public ApiResponse<MissionResponseDTO.MissionPreviewListDTO> readMissionsByStore(@PathVariable(name = "storeId") Long storeId, @RequestParam(name = "page") Integer page) {
         List<Mission> missionList = missionService.readMissionsByStore(storeId);
-        missionQueryService.getMissionList(storeId, page);
+//        missionQueryService.getMissionList(storeId, page);
         return ApiResponse.onSuccess(MissionConverter.toMissionPreviewListDTO(missionList));
     }
 }

@@ -5,6 +5,7 @@ import lombok.*;
 import umc.study.domain.Member;
 import umc.study.domain.Mission;
 import umc.study.domain.common.BaseEntity;
+import umc.study.domain.enums.MissionStatus;
 
 @Entity
 @Getter
@@ -16,8 +17,8 @@ public class MemberMission extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @Column(nullable = false, length = 15)
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private MissionStatus status;
 
     // FK
     @ManyToOne(fetch = FetchType.LAZY)

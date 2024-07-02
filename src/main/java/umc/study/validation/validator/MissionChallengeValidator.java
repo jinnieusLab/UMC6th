@@ -5,6 +5,7 @@ import jakarta.validation.ConstraintValidatorContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import umc.study.apiPayload.code.status.ErrorStatus;
+import umc.study.domain.enums.MissionStatus;
 import umc.study.repository.MemberMissionRepository;
 import umc.study.validation.annotation.ChallengeMission;
 
@@ -21,8 +22,7 @@ public class MissionChallengeValidator implements ConstraintValidator<ChallengeM
 
     @Override
     public boolean isValid(Long missionId, ConstraintValidatorContext context) {
-        String status = membermissionRepository.findMemberMissionByMission_Id(missionId).getStatus();
-        boolean isMissionChallenged = membermissionRepository.existsByMission_IdAndStatus(missionId, status);
+        boolean isMissionChallenged = membermissionRepository.existsByMissionIdAndStatus(missionId, MissionStatus.CHALLENGING);
 
         if(!isMissionChallenged){
             context.disableDefaultConstraintViolation();
