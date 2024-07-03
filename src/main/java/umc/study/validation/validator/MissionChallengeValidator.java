@@ -26,7 +26,7 @@ public class MissionChallengeValidator implements ConstraintValidator<ChallengeM
 
         if(!isMissionChallenged){
             context.disableDefaultConstraintViolation();
-            context.buildConstraintViolationWithTemplate(ErrorStatus.MEMBER_MISSION_CHALLENGE.toString()).addConstraintViolation();
+            context.buildConstraintViolationWithTemplate(ErrorStatus.MEMBER_MISSION_CHALLENGE.getMessage()).addConstraintViolation();
         }
 
         return isMissionChallenged;

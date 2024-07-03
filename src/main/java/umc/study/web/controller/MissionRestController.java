@@ -56,6 +56,7 @@ public class MissionRestController {
     @GetMapping("stores/{storeId}/missions")
     public ApiResponse<MissionResponseDTO.MissionPreviewListDTO> readMissionsByStore(@ExistsStore @PathVariable(name = "storeId") Long storeId, @CheckPage @RequestParam(name = "page") Integer page) {
 //        List<Mission> missionList = missionService.readMissionsByStore(storeId);
+        System.out.println("Received request for storeId: " + storeId + ", page: " + page); // 디버깅 라인 추가
         Page<Mission> missionPage = missionQueryService.getMissionList(storeId, page);
         return ApiResponse.onSuccess(MissionConverter.toMissionPreviewListDTO(missionPage));
     }

@@ -28,6 +28,7 @@ public class MissionQueryServiceImpl implements MissionQueryService {
 
     @Override
     public Page<Mission> getMissionList(Long storeId, Integer page) {
+        System.out.println("Getting missions for storeId: " + storeId + ", page: " + page); // 디버깅 라인 추가
         Store store = storeRepository.findById(storeId).get();
         Page<Mission> missionPage = missionRepository.findAllByStore(store, PageRequest.of(page, 10));
         return missionPage;

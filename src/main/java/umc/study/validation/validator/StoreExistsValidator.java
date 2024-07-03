@@ -20,13 +20,12 @@ public class StoreExistsValidator implements ConstraintValidator<ExistsStore, Lo
     @Override
     public boolean isValid(Long storeId, ConstraintValidatorContext context) {
         boolean isValid = storeRepository.existsById(storeId);
+        System.out.println("Validating storeId: " + storeId + " isValid: " + isValid); // 디버깅 라인 추가
 
         if (!isValid) {
             context.disableDefaultConstraintViolation();
             context.buildConstraintViolationWithTemplate(ErrorStatus.STORE_NOT_FOUND.toString()).addConstraintViolation();
         }
-
         return isValid;
-
     }
 }
