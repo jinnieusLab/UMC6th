@@ -32,11 +32,11 @@ public class MissionServiceImpl implements MissionService {
         return missionRepository.save(mission);
     }
 
-    @Override
-    @Transactional(readOnly = true)
-    public List<Mission> readMissionsByStore(Long storeId) {
-        Store store = storeRepository.findById(storeId).orElseThrow(() -> {
-            throw new MissionHandler(ErrorStatus.MISSION_NOT_FOUND);});
-        return missionRepository.findAllByStore(store);
-    }
+//    @Override
+//    @Transactional(readOnly = true)
+//    public List<Mission> readMissionsByStore(Long storeId) {
+//        Store store = storeRepository.findById(storeId).orElseThrow(() -> {
+//            throw new MissionHandler(ErrorStatus.MISSION_NOT_FOUND);});
+//        return missionRepository.findAllByStore(store);
+//    }
 }

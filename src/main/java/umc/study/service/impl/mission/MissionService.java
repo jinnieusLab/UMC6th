@@ -8,5 +8,5 @@ import java.util.List;
 public interface MissionService {
     Mission createMission(Long storeId, MissionRequestDTO.CreateMissionDTO createMissionDTO);
 
-    List<Mission> readMissionsByStore(Long storeId);
+//    List<Mission> readMissionsByStore(Long storeId);
 }
