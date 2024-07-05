@@ -49,6 +49,7 @@ public class MemberCommandServiceImpl implements MemberCommandService {
     }
 
     @Override
+    @Transactional
     public MemberMission addMemberMission(Long missionId) {
         // MemberMission의 Member와 Mission 연관관계
         Mission mission = missionRepository.findById(missionId).orElseThrow(() -> {
@@ -59,7 +60,11 @@ public class MemberCommandServiceImpl implements MemberCommandService {
             throw new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND);
         });
 
+        System.out.println("Mission: " + mission);
+        System.out.println("Member: " + member);
+
         MemberMission memberMission = MemberMissionConverter.toMemberMissionDTO(member, mission);
+        System.out.println("MemberMission: " + memberMission);
         return memberMissionRepository.save(memberMission);
     }
 }

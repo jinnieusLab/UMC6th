@@ -29,6 +29,7 @@ public class MemberRestController {
 
     @PostMapping("/missions/{missionId}")
     public ApiResponse<MemberMissionResponseDTO.AddMemberMissionResultDTO> addMemberMission(@ChallengeMission @PathVariable(name = "missionId") Long missionId) {
+        System.out.println("Received request for missionId: " + missionId); // 디버깅 라인 추가
         MemberMission memberMission = memberCommandService.addMemberMission(missionId);
         return ApiResponse.onSuccess(MemberMissionConverter.toAddMemberMissionDTO(memberMission));
     }
