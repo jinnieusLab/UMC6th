@@ -1,5 +1,11 @@
 package umc.study.web.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.Parameters;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +23,15 @@ import umc.study.web.dto.response.ReviewResponseDTO;
 public class ReviewRestController {
     private final ReviewService reviewService;
 
+    @Operation(summary = "가게 리뷰 등록 API",description = "멤버가 가게에 리뷰를 등록하는 API입니다.")
+    @ApiResponses({
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200", description = "OK, 리뷰 등록 성공"),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "STORE4001", description = "가게를 찾을 수 없습니다.",content = @Content(schema = @Schema(implementation = ApiResponse.class)))
+    })
+    @Parameters({
+            @Parameter(name = "memberId", description = "멤버의 아이디, path variable 입니다."),
+            @Parameter(name = "storeId", description = "가게의 아이디, path variable 입니다."),
+    })
     @PostMapping("members/{memberId}/stores/{storeId}/reviews")
     public ApiResponse<ReviewResponseDTO.CreateReviewResultDTO> createReview(@PathVariable Long memberId, @ExistsStore @PathVariable(name = "storeId") Long storeId, @RequestBody @Valid ReviewRequestDTO.CreateReviewDTO createReviewDTO) {
         Review review = reviewService.createReview(memberId, storeId, createReviewDTO);

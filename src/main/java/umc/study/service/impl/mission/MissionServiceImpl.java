@@ -12,8 +12,6 @@ import umc.study.repository.MissionRepository;
 import umc.study.repository.StoreRepository;
 import umc.study.web.dto.request.MissionRequestDTO;
 
-import java.util.List;
-
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -31,12 +29,4 @@ public class MissionServiceImpl implements MissionService {
 
         return missionRepository.save(mission);
     }
-
-//    @Override
-//    @Transactional(readOnly = true)
-//    public List<Mission> readMissionsByStore(Long storeId) {
-//        Store store = storeRepository.findById(storeId).orElseThrow(() -> {
-//            throw new MissionHandler(ErrorStatus.MISSION_NOT_FOUND);});
-//        return missionRepository.findAllByStore(store);
-//    }
 }
