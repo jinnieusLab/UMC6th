@@ -1,5 +1,7 @@
 package umc.study.web.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +21,10 @@ import umc.study.web.dto.response.StoreResponseDTO;
 public class StoreRestController {
     private final StoreService storeService;
 
+    @Operation(summary = "가게 등록 API",description = "가게를 등록하는 API입니다.")
+    @ApiResponses({
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200", description = "OK, 가게 등록 성공"),
+    })
     @PostMapping("/")
     public ApiResponse<StoreResponseDTO.CreateStoreResultDTO> createStore(@RequestBody @Valid StoreRequestDTO.CreateStoreDTO createStoreDTO) {
         Store store = storeService.createStore(createStoreDTO);

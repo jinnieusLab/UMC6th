@@ -23,12 +23,15 @@ public class MissionChallengeValidator implements ConstraintValidator<ChallengeM
     @Override
     public boolean isValid(Long missionId, ConstraintValidatorContext context) {
         boolean isMissionChallenged = membermissionRepository.existsByMissionIdAndStatus(missionId, MissionStatus.CHALLENGING);
+        System.out.println("mission id: " + missionId); // 디버깅 라인 추가
+        System.out.println("isMissionChallenged " + isMissionChallenged); // 디버깅 라인 추가
 
+        // 도전 중이 아니라면(false라면) 추가
         if(!isMissionChallenged){
             context.disableDefaultConstraintViolation();
             context.buildConstraintViolationWithTemplate(ErrorStatus.MEMBER_MISSION_CHALLENGE.getMessage()).addConstraintViolation();
         }
 
-        return isMissionChallenged;
+        return !isMissionChallenged;
     }
 }
