@@ -1,4 +1,4 @@
-package umc.study.service.impl.member;
+package umc.study.service.member;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

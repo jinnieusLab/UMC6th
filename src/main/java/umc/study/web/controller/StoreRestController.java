@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import umc.study.apiPayload.ApiResponse;
 import umc.study.converter.StoreConverter;
 import umc.study.domain.Store;
-import umc.study.service.impl.store.StoreService;
+import umc.study.service.store.StoreService;
 import umc.study.web.dto.request.StoreRequestDTO;
 import umc.study.web.dto.response.StoreResponseDTO;
 
