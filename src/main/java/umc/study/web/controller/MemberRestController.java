@@ -14,7 +14,7 @@ import umc.study.converter.MemberConverter;
 import umc.study.converter.MemberMissionConverter;
 import umc.study.domain.Member;
 import umc.study.domain.mapping.MemberMission;
-import umc.study.service.impl.member.MemberCommandService;
+import umc.study.service.member.MemberCommandService;
 import umc.study.validation.annotation.ChallengeMission;
 import umc.study.web.dto.request.MemberRequestDTO;
 import umc.study.web.dto.response.MemberMissionResponseDTO;

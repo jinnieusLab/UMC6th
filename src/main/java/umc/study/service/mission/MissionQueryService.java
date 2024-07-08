@@ -1,4 +1,4 @@
-package umc.study.service.impl.mission;
+package umc.study.service.mission;
 
 import org.springframework.data.domain.Page;
 import umc.study.domain.Mission;

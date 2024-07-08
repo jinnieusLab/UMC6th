@@ -1,4 +1,4 @@
-package umc.study.service.impl.mission;
+package umc.study.service.mission;
 
 import lombok.RequiredArgsConstructor;
 
